@@ -1,3 +1,5 @@
+#keep at least single image in output folder of comfyui, place in input folder file named "processed.png" as initial image
+
 import json
 from urllib import request, parse
 import random
@@ -6,21 +8,9 @@ import os
 import time
 from shutil import copy2
 
-
-
-
 path_to_save_image = "E:\\ComfyUI_windows\\ComfyUI\\output\\"
 path_to_load_image = "E:\\ComfyUI_windows\\ComfyUI\\input\\"
 generated_image = "ComfyUI_00001_.png"
-#This is the ComfyUI api prompt format.
-
-#If you want it for a specific workflow you can "enable dev mode options"
-#in the settings of the UI (gear beside the "Queue Size: ") this will enable
-#a button on the UI to save workflows in api format.
-
-#keep in mind ComfyUI is pre alpha software so this format will change a bit.
-
-#this is the one for the default workflow
 
 #prompt for ipadapter interpolation
 prompt_text_interpolation = """
