@@ -1,0 +1,271 @@
+{
+  "4": {
+    "inputs": {
+      "ckpt_name": "dreamshaperXL_lightningDPMSDE.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "70s dark fantasy illustration side_view of wizards smoking cigarettes. surrounded by bioluminescent creatures, d_far, ais-spirals",
+      "clip": [
+        "30",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "text, watermark, empty, naked, NSFW, boring, deformed body, additional limbs, missing limbs",
+      "clip": [
+        "30",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "14": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "scale_by": 1.03,
+      "image": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "ImageScaleBy",
+    "_meta": {
+      "title": "Upscale Image By"
+    }
+  },
+  "15": {
+    "inputs": {
+      "image": "processed.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "19": {
+    "inputs": {
+      "text": "analog photography, side view photo of girl sleeping, d_medium",
+      "clip": [
+        "30",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "21": {
+    "inputs": {
+      "conditioning_to_strength": 0,
+      "conditioning_to": [
+        "19",
+        0
+      ],
+      "conditioning_from": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "ConditioningAverage",
+    "_meta": {
+      "title": "ConditioningAverage"
+    }
+  },
+  "22": {
+    "inputs": {
+      "lora_name": {
+        "content": "VnC_beta.safetensors",
+        "image": null
+      },
+      "strength_model": 0.8,
+      "strength_clip": 1,
+      "example": "[none]",
+      "model": [
+        "4",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "LoraLoader|pysssss",
+    "_meta": {
+      "title": "Lora Loader ??"
+    }
+  },
+  "30": {
+    "inputs": {
+      "lora_name": {
+        "content": "SDXL\\style\\Colorful_Spirals_SDXL.safetensors",
+        "image": null
+      },
+      "strength_model": 1,
+      "strength_clip": 1,
+      "example": "[none]",
+      "model": [
+        "22",
+        0
+      ],
+      "clip": [
+        "22",
+        1
+      ]
+    },
+    "class_type": "LoraLoader|pysssss",
+    "_meta": {
+      "title": "Lora Loader ??"
+    }
+  },
+  "54": {
+    "inputs": {
+      "width": 1344,
+      "height": 768,
+      "x": 25,
+      "y": 11,
+      "image": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "ImageCrop",
+    "_meta": {
+      "title": "ImageCrop"
+    }
+  },
+  "71": {
+    "inputs": {
+      "image": "sumin4.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "74": {
+    "inputs": {
+      "images": [
+        "127",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "80": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "127",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "123": {
+    "inputs": {
+      "seed": 1,
+      "steps": 6,
+      "cfg": 1.5,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "30",
+        0
+      ],
+      "positive": [
+        "21",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "124",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "124": {
+    "inputs": {
+      "pixels": [
+        "54",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
+    }
+  },
+  "127": {
+    "inputs": {
+      "samples": [
+        "123",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "128": {
+    "inputs": {
+      "text": "@ wisieeen293",
+      "align": "bottom left",
+      "opacity": 0.5,
+      "font_name": "AlumniSansCollegiateOne-Regular.ttf",
+      "font_size": 80,
+      "font_color": "custom",
+      "x_margin": 20,
+      "y_margin": 20,
+      "font_color_hex": "#000000",
+      "image": [
+        "127",
+        0
+      ]
+    },
+    "class_type": "CR Simple Text Watermark",
+    "_meta": {
+      "title": "??? CR Simple Text Watermark"
+    }
+  }
+}
